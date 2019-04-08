@@ -7,12 +7,16 @@ import { Provider } from 'react-redux';
 
 const reducer = () =>{
     return{
-      count: 0
+      listItems: [{
+        text:"placeholder item",
+        completed: false,
+        id: 0
+    }]
     }
   };
 
 const store = createStore(reducer);
-console.log(store)
+//console.log(store)
 
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
