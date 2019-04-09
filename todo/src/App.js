@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import  { addItem } from './actions/App.js';
-import reducer from './reducer';
+//import reducer from './reducer';
+import ListItem from './components/ListItem';
 
 
 
@@ -24,12 +25,23 @@ class App extends Component {
       id: Date.now()
     }
 
+    
+    this.setState({
+      inputForm: ''
+    });
+
     this.props.addItem(newItem);
+
     //console.log(newItem);
-  }
+  };
 
   handleChange = e =>{
     this.setState({[e.target.name]: e.target.value});
+  };
+
+  getClicked = (e, item) =>{
+    console.log(e.target);
+    console.log(item);
   }
 
 
@@ -44,9 +56,9 @@ class App extends Component {
             name='inputForm' 
             onChange={(e) => this.handleChange(e)} 
           />
-          {this.props.listItems.map(item => <div>{item.text}</div>)}
+          <button onClick={(e) =>this.submitForm(e)}>Add to list</button>
         </form>
-       
+        {this.props.listItems.map(item => <ListItem item={item}/>)}
       </div>
     );
   }
