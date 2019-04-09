@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import  { addItem } from './actions/App.js';
+import reducer from './reducer';
 
 
 
@@ -39,19 +40,20 @@ class App extends Component {
         <form onSubmit={(e) =>this.submitForm(e)}>
           <input 
             type='text' 
-            value={this.state.formValue} 
+            value={this.state.inputForm} 
             name='inputForm' 
             onChange={(e) => this.handleChange(e)} 
           />
+          {this.props.listItems.map(item => <div>{item.text}</div>)}
         </form>
-        {this.props.listItems.map(item => <div key={item.id}>{item.text}</div>)}
+       
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) =>{
-  //console.log(state);
+  console.log(state);
   return{
     listItems: state.listItems
   }
