@@ -65,7 +65,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) =>{
-  console.log(state);
+  //console.log(state);
   return{
     listItems: state.listItems
   }

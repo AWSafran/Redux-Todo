@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) =>{
-    console.log('made it to reducer')
+    //console.log('made it to reducer')
 
     switch (action.type){
         case ADD_ITEM:
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) =>{
                 ]
             };
         case MARK_ITEM:
-            console.log("made it to mark item");
+            //console.log("made it to mark item");
             const newArray = state.listItems.map(item =>{
                 if (item.id === action.payload){
                     item.completed = true;

@@ -21,7 +21,7 @@ export const toggleItem = (id, completed) =>{
         }
     }
     else{
-        console.log("should mark item");
+        //console.log("should mark item");
         return{
             type: MARK_ITEM,
             payload: id
